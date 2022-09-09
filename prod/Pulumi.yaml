@@ -1,0 +1,6 @@
+name: prod
+description: Prod Env
+runtime:
+    name: python
+    options:
+        virtualenv: venv

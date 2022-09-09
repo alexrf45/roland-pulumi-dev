@@ -1,6 +1,0 @@
-name: demo-dev
-runtime:
-  name: python
-  options:
-    virtualenv: venv
-description: a simple project using dev, prod, and testing env

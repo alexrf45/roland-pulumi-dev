@@ -1,0 +1,6 @@
+name: dev
+description: Dev Env
+runtime:
+    name: python
+    options:
+        virtualenv: venv
