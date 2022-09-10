@@ -13,7 +13,7 @@ def dev_iam_users():
             "name":"dev",
             "group":"dev-team"
         })
-    dev_0 = aws.iam.User('dev',
+    dev_0 = aws.iam.User('dev0',
         name='dev0',
         tags={
             "name":"dev",
