@@ -1,8 +1,6 @@
-"""An AWS Python Pulumi program"""
-
 import pulumi
 import json
-from pulumi_aws import s3
+
 import pulumi_aws as aws
 
 def dev_iam_users():
@@ -45,20 +43,3 @@ def dev_iam_group():
     pulumi.export('iam_group_name', dev_team.id)
 
 dev_iam_group()
-
-
-def dev_s3():
-    # Create an AWS resource (S3 Bucket)
-    bucket = s3.Bucket('dev')
-    # Export the name of the bucket
-    pulumi.export('bucket_name', bucket.id)
-
-dev_s3()
-
-def read_me():
-    # open template readme and read contents into stack output
-    with open('Pulumi.README.md') as f:
-        pulumi.export('readme', f.read())
-
-read_me()
-
