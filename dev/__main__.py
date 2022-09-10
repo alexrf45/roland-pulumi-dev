@@ -6,31 +6,15 @@ from pulumi_aws import s3
 import pulumi_aws as aws
 
 def dev_iam():
-
-    policy = aws.iam.Policy("dev_policy",
-        name='dev_policy',
-        path="/",
-        description="development policy",
-        policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": ["ec2:Describe*"],
-                "Effect": "Allow",
-                "Resource": "*",
-            }],
-        }))
-        
-
-    pulumi.export('iam_dev_arn', policy.arn)
-
+    
     dev = aws.iam.User('dev',
         name='dev',
         tags={
             "name":"dev",
             "group":"dev-team"
         })
-    dev_0 = aws.iam.User('dev_0',
-        name='dev-0',
+    dev_0 = aws.iam.User('dev',
+        name='dev0',
         tags={
             "name":"dev",
             "group":"dev-team"
