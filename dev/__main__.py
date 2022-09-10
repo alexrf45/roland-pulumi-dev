@@ -7,8 +7,8 @@ import pulumi_aws as aws
 
 def dev_iam_users():
     
-    dev = aws.iam.User('dev',
-        name='dev',
+    dev = aws.iam.User('dev1',
+        name='dev1',
         tags={
             "name":"dev",
             "group":"dev-team"
@@ -19,8 +19,10 @@ def dev_iam_users():
             "name":"dev",
             "group":"dev-team"
         })
+    dev_name = pulumi.export('iam_dev_name', dev.name)
+    dev0_name = pulumi.export('iam_dev0_name', dev_0.name)
+    return dev_name, dev0_name
 
-    
 dev_iam_users()
 
 def dev_iam_group():
@@ -40,7 +42,7 @@ def dev_iam_group():
 
     dev_team = aws.iam.GroupMembership('dev-team',
         group = devs.id,
-        users=[dev.id, dev_0.id])
+        users=[dev_name.id, dev0_name.id])
 
     pulumi.export('iam_group_name', dev_team.id)
 
