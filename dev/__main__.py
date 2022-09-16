@@ -1,4 +1,6 @@
 """An AWS Python Pulumi program
+dev_vpc()
+    - Creates a VPC with two subnets
 dev_iam_users()
     - Creates two iam users, dev and dev0
 
@@ -14,17 +16,22 @@ read_me()
     - Creates read me for pulumi dashboard
 """
 import sys
+from time import sleep
+from infrastructure.vpc import dev_vpc
 from infrastructure.iam import dev_iam_group, dev_iam_users
 from infrastructure.s3 import dev_s3
 from documentation.readme import read_me
 
 sys.path.append('./dev')
 
-dev_iam_users()
+dev_vpc()
 
+dev_iam_users()
 
 dev_iam_group()
 
 dev_s3()
+
+sleep(2)
 
 read_me()

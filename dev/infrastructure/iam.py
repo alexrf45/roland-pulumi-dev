@@ -1,25 +1,29 @@
 """IAM module"""
 import json
 import pulumi
-
 import pulumi_aws as aws
+
 
 DEV_NAME = 'dev'
 DEV_0_NAME = 'dev0'
+DEV_GROUP = 'devs'
+ENVIRONMENT = 'Dev'
 
 def dev_iam_users():
     """creates two dev users for dev environment"""
     dev = aws.iam.User('dev1',
         name = DEV_NAME,
         tags ={
-            "name":"dev",
-            "group":"dev-team"
+            "Name":DEV_NAME ,
+            "Group": DEV_GROUP,
+            "Environment": ENVIRONMENT
         })
     dev_0 = aws.iam.User('dev0',
         name = DEV_0_NAME,
         tags ={
-            "name":"dev0",
-            "group":"dev-team"
+            "Name": DEV_0_NAME,
+            "Nroup": DEV_GROUP,
+            "Environment": ENVIRONMENT
         })
     pulumi.export('iam_dev_name' , dev.name)
     pulumi.export('iam_dev0_name', dev_0.name)
@@ -28,8 +32,7 @@ def dev_iam_users():
 
 def dev_iam_group():
     """ Creates an IAM group with basic policy. """
-    devs = aws.iam.Group('devs',
-        path='/')
+    devs = aws.iam.Group(DEV_GROUP, path='/')
 
     aws.iam.GroupPolicy('dev-test',
         group = devs.id,
