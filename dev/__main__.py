@@ -18,6 +18,7 @@ read_me()
 import sys
 from time import sleep
 from infrastructure.vpc import dev_vpc
+# from infrastructure.vpc1 import dev_vpc
 from infrastructure.iam import dev_iam_group, dev_iam_users
 from infrastructure.s3 import dev_s3
 from documentation.readme import read_me
