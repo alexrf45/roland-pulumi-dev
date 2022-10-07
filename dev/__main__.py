@@ -21,6 +21,7 @@ from infrastructure.vpc import dev_vpc
 # from infrastructure.vpc1 import dev_vpc
 from infrastructure.iam import dev_iam_group, dev_iam_users
 from infrastructure.s3 import dev_s3
+from infrastructure.ec2 import dev_ec2
 from documentation.readme import read_me
 
 sys.path.append('./dev')
@@ -32,6 +33,8 @@ dev_iam_users()
 dev_iam_group()
 
 dev_s3()
+
+dev_ec2()
 
 sleep(2)
 
