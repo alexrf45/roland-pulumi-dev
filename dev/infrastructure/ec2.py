@@ -30,7 +30,7 @@ def dev_ec2():
     instance_type = SIZE,
     vpc_security_group_ids = [group.id], # reference security group from above
     ami=AMI,
-    subnet_id=SUBNET)
+    subnet_id=SUBNET.id)
 
     pulumi.export('publicIp', server.public_ip)
     pulumi.export('publicHostName', server.public_dns)
