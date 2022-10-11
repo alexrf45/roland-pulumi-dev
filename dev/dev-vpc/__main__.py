@@ -1,6 +1,7 @@
 """VPC module to set up seperate VPC"""
 import pulumi
 import pulumi_aws as aws
+from iam import dev_iam_users, dev_iam_group
 
 VPC_NAME= 'dev-vpc'
 NET_NAME='Dev-Network'
@@ -58,3 +59,7 @@ def dev_vpc():
     pulumi.export('primary_subnet_id', primary_subnet.id)
     pulumi.export('secondary_subnet_id', secondary_subnet.id)
     return primary_subnet.id
+dev_vpc()
+
+dev_iam_users()
+dev_iam_group()
