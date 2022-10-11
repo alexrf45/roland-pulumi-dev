@@ -1,0 +1,6 @@
+name: dev-vpc
+description: Development VPC
+runtime:
+    name: python
+    options:
+        virtualenv: venv
