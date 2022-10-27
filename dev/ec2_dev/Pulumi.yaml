@@ -1,0 +1,6 @@
+name: ec2_dev
+description: EC2 Instance to host a gitlab or pipeline
+runtime:
+    name: python
+    options:
+        virtualenv: venv
