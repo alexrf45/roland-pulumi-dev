@@ -1,4 +1,4 @@
-'''simele module to create an EC2 Instance'''
+'''simple module to create an EC2 Instance'''
 import pulumi
 import pulumi_aws as aws
 
