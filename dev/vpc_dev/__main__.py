@@ -3,6 +3,7 @@ import pulumi
 import pulumi_aws as aws
 from iam import dev_iam_users, dev_iam_group
 from vpc import dev_vpc
+from ec2_dev import instance_dev
 
 VPC_NAME= 'dev-vpc'
 NET_NAME='Dev-Network'
@@ -64,3 +65,4 @@ dev_vpc()
 
 dev_iam_users()
 dev_iam_group()
+instance_dev()
